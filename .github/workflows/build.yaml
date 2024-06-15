@@ -66,23 +66,23 @@ jobs:
                            gcc-arm-none-eabi gcc-aarch64-linux-gnu gcc-11-aarch64-linux-gnu 
       - name: Build (Legacy)
         run: |
-          make EMBED="init.ipxe" -j 4 -C upstream/src \
+          make -j 4 -C upstream/src \
                bin-i386-pcbios/ipxe.kpxe
       - name: Build (x86)
         run: |
-          make EMBED="init.ipxe" -j 4 -C upstream/src \
+          make -j 4 -C upstream/src \
                bin-i386-efi/ipxe.efi
       - name: Build (x86_64)
         run: |
-          make EMBED="init.ipxe" -j 4 -C upstream/src \
+          make -j 4 -C upstream/src \
                bin-x86_64-efi/ipxe.efi
       - name: Build (arm32)
         run: |
-          make EMBED="init.ipxe" -j 4 -C upstream/src CROSS=arm-none-eabi- \
+          make -j 4 -C upstream/src CROSS=arm-none-eabi- \
                bin-arm32-efi/snp.efi
       - name: Build (arm64)
         run: |
-          make EMBED="init.ipxe" -j 4 -C upstream/src CROSS=aarch64-linux-gnu- \
+          make -j 4 -C upstream/src CROSS=aarch64-linux-gnu- \
                bin-arm64-efi/snp.efi
       - name: Move iPXE Binaries
         run: |
